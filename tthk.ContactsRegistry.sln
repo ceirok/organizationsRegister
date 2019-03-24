@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tthk.ContactsRegistry", "tthk.ContactsRegistry\tthk.ContactsRegistry.csproj", "{BA31A80C-8EEF-45E6-996C-C0457A35FED2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA31A80C-8EEF-45E6-996C-C0457A35FED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA31A80C-8EEF-45E6-996C-C0457A35FED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA31A80C-8EEF-45E6-996C-C0457A35FED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA31A80C-8EEF-45E6-996C-C0457A35FED2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F992DF67-32BD-4390-85D3-5A5DF6C18479}
+	EndGlobalSection
+EndGlobal

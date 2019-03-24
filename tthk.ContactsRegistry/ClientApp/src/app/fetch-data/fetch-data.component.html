@@ -1,0 +1,41 @@
+<h1>Contacts registry</h1>
+
+<p *ngIf="!contacts"><em>Loading...</em></p>
+
+<div *ngIf="contacts">
+
+  <div style="display: flex">
+    <form style="flex:1; display: flex" (submit)="search()">
+      <input type="text" class="form-control" [(ngModel)]="searchTerm" name="searchTerm" />
+      <button class="btn" type="submit">Search</button>
+    </form>
+    <div>
+      <a [routerLink]="['/contacts/add']" class="btn btn-primary">Add new</a>
+    </div>
+  </div>
+
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts;let i = index">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.defaultPhoneNumber }}</td>
+        <td>{{ contact.defaultEmail }}</td>
+        <td>
+          <a [routerLink]="['/contacts/', contact.id]">Edit</a> |
+          <a (click)="delete(contact, i)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

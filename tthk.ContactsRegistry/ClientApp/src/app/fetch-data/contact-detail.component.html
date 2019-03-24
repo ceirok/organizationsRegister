@@ -1,0 +1,85 @@
+<h1>Contacts registry</h1>
+
+<p *ngIf="loading"><em>Loading...</em></p>
+<div *ngIf="!loading">
+
+  <label>
+    <input type="checkbox" [(ngModel)]="easy" /> Easy
+  </label>
+
+
+  <form (ngSubmit)="save()">
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" [(ngModel)]="model.name" name="name" />
+    </div>
+    <div class="form-group">
+      <label>Initials</label>
+      <input class="form-control" [(ngModel)]="model.initials" name="initials" />
+    </div>
+
+    <div *ngIf="easy">
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input class="form-control" [(ngModel)]="model.phoneNumber" name="phoneNumber" />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" [(ngModel)]="model.email" name="email" />
+      </div>
+    </div>
+
+    <div *ngIf="!easy">
+      <div class="form-group" style="width: 500px;">
+        <label>Phonenumber</label>
+        <div *ngFor="let phoneNumber of model.phoneNumbers; let i = index" style="display: flex;">
+          <div style="flex: 4">
+            <input class="form-control" [(ngModel)]="phoneNumber.number" name="'phoneNumbers[{{i}}].number'" />
+          </div>
+          <div style="flex: 4">
+            <select name="phoneNumbers[{{i}}].type" class="form-control" [(ngModel)]="phoneNumber.type">
+              <option value="">--</option>
+              <option *ngFor="let type of phoneTypes" [ngValue]="type">{{type}}</option>
+            </select>
+          </div>
+          <div style="flex: 1">
+            <input type="checkbox" [(ngModel)]="phoneNumber.isDefault" name="phoneNumbers[{{i}}].isDefault" class="form-control" (change)="setDefaultPhone(phoneNumber)" />
+          </div>
+          <div style="flex: 1">
+            <a (click)="removeNumber(i)">X</a>
+          </div>
+        </div>
+        <button (click)="addNumber()" class="btn" type="button">Lisa</button>
+      </div>
+
+      <div class="form-group" style="width: 500px;">
+        <label>E-mail</label>
+        <div *ngFor="let email of model.emails; let i = index" style="display: flex;">
+          <div style="flex: 4">
+            <input class="form-control" [(ngModel)]="email.email" name="'emails[{{i}}].email'" />
+          </div>
+          <div style="flex: 4">
+            <select name="emails[{{i}}].type" class="form-control" [(ngModel)]="email.type">
+              <option value="">--</option>
+              <option *ngFor="let type of emailTypes" [ngValue]="type">{{type}}</option>
+            </select>
+          </div>
+          <div style="flex: 1">
+            <input type="checkbox" [(ngModel)]="email.isDefault" name="emails[{{i}}].isDefault" class="form-control" (change)="setDefaultEmail(email)" />
+          </div>
+          <div style="flex: 1">
+            <a (click)="removeEmail(i)">X</a>
+          </div>
+        </div>
+        <button (click)="addEmail()" class="btn" type="button">Lisa</button>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a [routerLink]="['/fetch-data']" class="btn btn-light">Discard</a>
+
+  </form>
+
+</div>
